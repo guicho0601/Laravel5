@@ -1,12 +1,11 @@
 @extends('layout')
 
 @section('content')
-
-<h1>Justin Bieber Official Fan Club</h1>
-
 <ul>
 @foreach($songs as $song)
-    <li><a href="songs/{{$song->id}}">{{$song->title}}</a></li>
+    <li>
+        <?= link_to_route('songs.show',$song->title, [$song->slug]) ?>
+    </li>
 @endforeach
 </ul>
 @stop

@@ -13,11 +13,23 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('about','PagesController@about');
-
 Route::get('home', 'HomeController@index');
 
+
+
+//Route::model('song','App\Song');
+Route::bind('songs',function($slug){
+	return App\Song::whereSlug($slug)->first();
+});
+
+/*
 get('songs','SongsController@index');
-get('songs/{id}','SongsController@show');
+get('songs/{slug}','SongsController@show');
+get('songs/{slug}/edit','SongsController@edit');
+patch('songs/{slug}','SongsController@update');
+*/
+
+$router->resource('songs','SongsController');
 
 
 Route::controllers([

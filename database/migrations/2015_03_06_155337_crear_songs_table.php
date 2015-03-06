@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSongsTable extends Migration {
+class CrearSongsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -15,8 +15,8 @@ class CreateSongsTable extends Migration {
 		Schema::create('songs', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->string('title');
-            $table->text('lyrics')->nullable();
+			$table->string('title');
+			$table->text('lyrics')->nullable();
 			$table->string('slug')->unique();
 			$table->timestamps();
 		});
